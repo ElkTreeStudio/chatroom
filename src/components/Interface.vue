@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import ChatRoom from './ChatRoom.vue';
 import Editor from './Editor.vue';
 
 const messagesList = ref<string[]>([]);
@@ -16,9 +17,7 @@ const sendMessage = (message) => {
 
 <template>
 <section class="chat-interface-frame">
-  <div v-for="(msg, idx) in messagesList" :key="idx">
-    {{ msg }}
-  </div>
+  <ChatRoom :messageData="messagesList" />
   <Editor @send="sendMessage" />
 </section>
 </template>
@@ -27,6 +26,7 @@ const sendMessage = (message) => {
 
 .chat-interface-frame {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
   align-content: flex-end;
   width: 800px;
