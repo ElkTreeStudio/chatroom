@@ -19,7 +19,7 @@ const checkData = () => {
 <template>
   <main class="chatroom-frame">
     <div v-for="(msg, idx) in messageData" :key="idx">
-      {{ msg }}
+      <p v-html="msg"></p>
     </div>
   </main>
 

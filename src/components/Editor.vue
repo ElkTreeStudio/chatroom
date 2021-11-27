@@ -1,28 +1,28 @@
 <script setup lang="ts">
 
-  import { ref, defineEmit } from 'vue';
+import { ref, defineEmit } from 'vue';
 
-  const emit = defineEmits<{
-    (e: 'send', message: string): void
-  }>();
+const emit = defineEmits<{
+  (e: 'send', message: string): void
+}>();
 
-  const newMessage = ref<string>('');
+const newMessage = ref<string>('');
 
-  const onEdit = (e) => {
-    const keyCode = e.which || e.keyCode;
+const onEdit = (e) => {
+  const keyCode = e.which || e.keyCode;
 
-    // 13 represents the Enter key
-    if (keyCode === 13 && !e.shiftKey) {
-      // Don't generate a new line
-      e.preventDefault();
-      // console.log(e);
-      // Send message
-      console.log(newMessage.value);
-      emit('send', newMessage.value);
-      newMessage.value = '';
-    }
-    
-  };
+  // 13 represents the Enter key
+  if (keyCode === 13 && !e.shiftKey) {
+    // Don't generate a new line
+    e.preventDefault();
+    // console.log(e);
+    // Send message
+    console.log(newMessage.value);
+    emit('send', newMessage.value);
+    newMessage.value = '';
+  }
+  
+};
 
 </script>
 
